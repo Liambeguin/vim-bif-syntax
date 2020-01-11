@@ -57,6 +57,9 @@ syn keyword bifAttr contained nextgroup=bifOperator
 syn match bifOperator contained nextgroup=bifValue
 	\ "[=,]"
 
+" alignment offset reserve load startup
+syn match bifValue contained "0x\d+"
+
 " encryption
 syn keyword bifValue contained
 	\ none
@@ -89,11 +92,6 @@ syn match bifValue contained "el-[0-3]"
 " - presign=filename
 " - udf_data=filename
 "
-" - alignment=value
-" - offset=value
-" - reserve=value
-" - load=value
-" - startup=value
 
 " Match image name
 syn match bifName "\w\+:\@=" nextgroup=bifDescBlock
