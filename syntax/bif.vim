@@ -40,9 +40,9 @@ syn region bifDescBlock start="{" end="}" fold transparent contains=bifAttr,bifC
 let b:current_syntax = "bif"
 
 " Highlight
-hi def link bifName Normal
-hi def link bifTodo Todo
-hi def link bifAttr Statement
-hi def link bifValue Constant
-hi def link bifComment Comment
+hi def link bifName	Normal
+hi def link bifTodo	Todo
+hi def link bifAttr	Statement
+hi def link bifValue	Constant
+hi def link bifComment	Comment
 
