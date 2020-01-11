@@ -10,17 +10,49 @@ endif
 " Regular list of TODO tags
 syn keyword bifTodo contained TODO FIXME XXX NOTE
 
-" Here is a selection of attributes often used
+" COMMON BIT ATTRIBUTES (see: `bootgen -bif_help`)
 syn keyword bifAttr contained nextgroup=bifOperator
+	\ init
+	\ aeskeyfile
+	\ ppkfile
+	\ pskfile
+	\ spkfile
+	\ sskfile
+	\ spksignature
+	\ headersignature
+	\ bootimage
+	\
+	\ pmufw_image
+	\ auth_params
+	\ keysrc_encryption
+	\ boot_device
+	\ fsbl_config
+	\ split
+	\ puf_file
+	\ bhsignature
+	\ familykey
+	\
 	\ bootloader
+	\ encryption
+	\ authentication
 	\ checksum
-	\ load
+	\ presign
+	\ udf_data
+	\ xip_mode
+	\ partition_owner
+	\ alignment
 	\ offset
 	\ reserve
-	\ pmufw_image
+	\ load
+	\ startup
+	\
 	\ destination_cpu
-	\ exception_level
+	\ destination_device
 	\ trustzone
+	\ early_handoff
+	\ hivec
+	\ exception_level
+	\ blocks
 
 syn match bifOperator contained nextgroup=bifValue
 	\ "[=,]"
