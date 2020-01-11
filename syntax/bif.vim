@@ -18,6 +18,10 @@ syn keyword bifAttr
 	\ load
 	\ offset
 	\ reserve
+	\ pmufw_image
+	\ destination_cpu
+	\ exception_level
+	\ trustzone
 
 " Match image name
 syn match bifName "\w\+:\@="
