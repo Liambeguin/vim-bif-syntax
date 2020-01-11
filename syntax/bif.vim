@@ -57,11 +57,43 @@ syn keyword bifAttr contained nextgroup=bifOperator
 syn match bifOperator contained nextgroup=bifValue
 	\ "[=,]"
 
-syn match bifValue contained "a53-[0-3]"
-syn match bifValue contained "el-[0-3]"
+" encryption
 syn keyword bifValue contained
+	\ none
+	\ aes
+" authentication
+syn keyword bifValue contained
+	\ none
+	\ rsa
+" checksum
+syn keyword bifValue contained
+	\ none
 	\ md5
 	\ sha3
+" partition_owner
+syn keyword bifValue contained
+	\ fsbl
+	\ uboot
+" destination_cpu
+syn match bifValue contained "\v(a53-[0-3]|r5-([01]|lockstep)|pmu)"
+" destination_device
+syn match bifValue contained "\v(ps|pl)"
+" trustzone
+syn match bifValue contained "\v(secure|nonsecure)"
+" exception_level
+syn match bifValue contained "el-[0-3]"
+" blocks
+" TODO: blocks = <size><num>;<size><num>;...;<size><*>
+
+" TODO: the following options take dynamic data, remove error
+" - presign=filename
+" - udf_data=filename
+"
+" - alignment=value
+" - offset=value
+" - reserve=value
+" - load=value
+" - startup=value
 
 " Match image name
 syn match bifName "\w\+:\@=" nextgroup=bifDescBlock
