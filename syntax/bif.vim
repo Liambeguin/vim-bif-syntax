@@ -11,8 +11,7 @@ endif
 syn keyword bifTodo contained TODO FIXME XXX NOTE
 
 " Here is a selection of attributes often used
-syn keyword bifAttr nextgroup=bifValue skipwhite
-syn keyword bifAttr
+syn keyword bifAttr contained nextgroup=bifOperator
 	\ bootloader
 	\ checksum
 	\ load
@@ -23,26 +22,35 @@ syn keyword bifAttr
 	\ exception_level
 	\ trustzone
 
+syn match bifOperator contained nextgroup=bifValue
+	\ "[=,]"
+
+syn match bifValue contained "a53-[0-3]"
+syn match bifValue contained "el-[0-3]"
+syn keyword bifValue contained
+	\ md5
+	\ sha3
+
 " Match image name
-syn match bifName "\w\+:\@="
+syn match bifName "\w\+:\@=" nextgroup=bifDescBlock
 
 " Match all C style comments
 syn match bifComment "//.*$" contains=bifTodo
 syn region bifComment start="/\*" end="\*/" contains=bifTodo
 
 " Match all value fields
-syn region bifValues start="\[" end="\]" contains=bifValue
-syn match bifValue "=\@<=\w\+" contained
+syn region bifAttrBlock start="\["ms=s+1 end="\]"me=e-1 contains=bifAttr,bifOperator,bifValue
 
-
-syn region bifDescBlock start="{" end="}" fold transparent contains=bifAttr,bifComment,bifValue
+syn region bifDescBlock start="{" end="}" fold transparent contains=bifAttrBlock
 
 let b:current_syntax = "bif"
 
 " Highlight
-hi def link bifName	Normal
-hi def link bifTodo	Todo
-hi def link bifAttr	Statement
-hi def link bifValue	Constant
-hi def link bifComment	Comment
+hi def link bifName		Identifier
+hi def link bifTodo		Todo
+hi def link bifAttrBlock	Error
+hi def link bifAttr		Special
+hi def link bifOperator		Special
+hi def link bifValue		Constant
+hi def link bifComment		Comment
 
