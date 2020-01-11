@@ -11,7 +11,13 @@ endif
 syn keyword bifTodo contained TODO FIXME XXX NOTE
 
 " Here is a selection of attributes often used
-syn keyword bifAttr bootloader checksum load offset reserve nextgroup=bifValue skipwhite
+syn keyword bifAttr nextgroup=bifValue skipwhite
+syn keyword bifAttr
+	\ bootloader
+	\ checksum
+	\ load
+	\ offset
+	\ reserve
 
 " Match image name
 syn match bifName "\w\+:\@="
