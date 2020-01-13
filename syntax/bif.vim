@@ -103,7 +103,7 @@ syn region bifComment start="/\*" end="\*/" contains=bifTodo
 " Match all value fields
 syn region bifAttrBlock start="\["ms=s+1 end="\]"me=e-1 contains=bifAttr,bifOperator,bifValue
 
-syn region bifDescBlock start="{" end="}" fold transparent contains=bifAttrBlock
+syn region bifDescBlock start="{" end="}" fold transparent contains=bifAttrBlock,bifComment
 
 let b:current_syntax = "bif"
 
